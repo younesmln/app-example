@@ -3,12 +3,13 @@ import React from 'react';
 class MyForm extends React.Component {
   state = {
     name: '',
-    age: ''
+    age: '',
+    isEdit: true
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.setState({ isEdit: !this.state.isEdit });
   };
 
   nameChange = e => {
@@ -25,7 +26,11 @@ class MyForm extends React.Component {
           value={name}
           onChange={this.nameChange}
         />
-        <input type="text" name="age" value={age} onChange={this.ageChange} />
+        {this.state.isEdit ? (
+          <input type="text" name="age" value={age} onChange={this.ageChange} />
+        ) : (
+          this.state.name
+        )}
         <input type="submit" value="submit" />
       </form>
     );
