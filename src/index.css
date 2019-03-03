@@ -3,8 +3,6 @@ body {
   padding: 0;
 }
 
-.search__input {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-  border: none;
-  padding: 5px;
+.todo-item--done {
+  text-decoration: line-through;
 }
